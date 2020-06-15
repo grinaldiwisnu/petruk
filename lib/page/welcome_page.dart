@@ -8,7 +8,7 @@ class WelcomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: bodyWelcome(context),
-        backgroundColor: Color(0xffF4EEFF),
+        backgroundColor: Color(0xffF9C784),
       ),
     );
   }
@@ -47,11 +47,20 @@ class WelcomePage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(vertical: 30),
-            child: FlatButton(
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage())),
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-              color: Color(0xffA6B1E1),
-              child: Text("Mulai Berpetualang!", style: TextStyle(color: Colors.white),),
+            child: InkWell(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage())),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Color(0xff485696),
+                  border: Border.all(color: Color(0xffF24C00), width: 3),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                child: Text(
+                  "Mulai Berpetualang!",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           )
         ],

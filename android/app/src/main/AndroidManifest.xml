@@ -10,6 +10,11 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="petruk"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBqfs_2SoY4YteDlc7hZEB9HU6FVLC3kns" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
