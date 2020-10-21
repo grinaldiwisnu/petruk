@@ -7,8 +7,13 @@ class LocationModel {
   String LOKASI;
   String NAMA;
   String VIDEO;
+  String KERAJAAN;
   String FILE;
+  String FOTO;
+  String TIPE;
   GeoPoint KOORDINAT;
+  String DISPLAY;
+  String IS_GROUP;
   String PETA;
   List<PhotoModel> PHOTO;
 
@@ -18,8 +23,13 @@ class LocationModel {
       this.LOKASI,
       this.NAMA,
       this.VIDEO,
+      this.KERAJAAN,
       this.FILE,
+      this.FOTO,
+      this.TIPE,
       this.KOORDINAT,
+      this.DISPLAY,
+      this.IS_GROUP,
       this.PETA,
       this.PHOTO});
 
@@ -30,8 +40,13 @@ class LocationModel {
       'LOKASI': this.LOKASI,
       'NAMA': this.NAMA,
       'VIDEO': this.VIDEO,
+      'KERAJAAN': this.KERAJAAN,
       'FILE': this.FILE,
+      'FOTO': this.FOTO,
+      'TIPE': this.TIPE,
       'KOORDINAT': this.KOORDINAT,
+      'DISPLAY': this.DISPLAY,
+      'IS_GROUP': this.IS_GROUP,
       'PETA': this.PETA,
       'PHOTO': this.PHOTO,
     };
@@ -44,8 +59,13 @@ class LocationModel {
       LOKASI: map['LOKASI'] as String,
       NAMA: map['NAMA'] as String,
       VIDEO: map['VIDEO'] as String,
+      KERAJAAN: map['KERAJAAN'] as String,
       FILE: map['FILE'] as String,
+      FOTO: map['FOTO'] as String,
+      TIPE: map['TIPE'].toString(),
       KOORDINAT: map['KOORDINAT'] as GeoPoint,
+      DISPLAY: map['DISPLAY'].toString(),
+      IS_GROUP: map['IS_GROUP'].toString(),
       PETA: map['PETA'] as String,
       PHOTO: map['PHOTO'] as List<PhotoModel>,
     );

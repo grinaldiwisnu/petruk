@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FaqPage extends StatelessWidget {
   @override
@@ -36,6 +37,35 @@ class FaqPage extends StatelessWidget {
                 ),
               ),
               Container(
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    listHelp(
+                        icon: "assets/kikd.svg",
+                        title: "Menu KI/KD",
+                        text: "Berisi penjelasan Kompetensi Inti, Kompetensi Dasar, Indikator, dan Tujuan."),
+                    listHelp(
+                        icon: "assets/location.svg",
+                        title: "Menu Peta",
+                        text:
+                            "Berisi peta lokasi peninggalan dan situs-situs sejarah di Kediri beserta materi setiap peninggalan."),
+                    listHelp(
+                        icon: "assets/evaluation.svg",
+                        title: "Menu Evaluasi",
+                        text: "Berisi soal-soal evaluasi berdasarkan materi yang telah dibaca di peta lokasi."),
+                    listHelp(
+                        icon: "assets/more.svg",
+                        title: "Menu Daftar Pustaka",
+                        text: "Berisi daftar rujukan materi-materi yang ada pada peta lokasi."),
+                    listHelp(
+                        icon: "assets/about.svg",
+                        title: "Menu Tentang",
+                        text: "Berisi informasi pengembang aplikasi PETRUK beserta kontak."),
+                  ],
+                ),
+              ),
+              Container(
                 margin: EdgeInsets.only(top: 25, bottom: 5),
                 alignment: Alignment.center,
                 child: Text(
@@ -43,37 +73,29 @@ class FaqPage extends StatelessWidget {
                   style: TextStyle(color: Color(0xff485696), fontWeight: FontWeight.bold, fontSize: 22),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "1. Buka aplikasi PETRUK yang sudah diinstall.",
-                        style: TextStyle(fontSize: 16, color: Color(0xff485696)),
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        "2. Pilih peta untuk melihat persebaran situs peninggalan yang ada di Kediri.",
-                        style: TextStyle(fontSize: 16, color: Color(0xff485696)),
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        "3. Unduh dan baca materi yang diberikan, dan jangan lupa tonton video penjelasannya.",
-                        style: TextStyle(fontSize: 16, color: Color(0xff485696)),
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        "4. Jika dirasa sudah selesai, silahkan lakukan evaluasi materi.",
-                        style: TextStyle(fontSize: 16, color: Color(0xff485696)),
-                      ),
-                    ),
-                  ],
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  listStep(no: 1, step: "Klik button “Mulai Berpetualangan” untuk masuk menu utama."),
+                  listStep(
+                      no: 2,
+                      step: "Klik menu KI dan KD  untuk mengetahui Kompetensi Inti, Kompetensi Dasar, "
+                          "Indikator,dan Tujuan pembelajaran yang  ingin dicapai melalui aplikasi PETRUK."),
+                  listStep(no: 3, step: "Klik menu Bantuan untuk mengetahui penggunaan aplikasi PETRUK."),
+                  listStep(
+                      no: 4,
+                      step: "Klik menu PETA - klik ikon tanda tanya untuk mengetahui peta persebaran "
+                          "Hindu Budha di wilayah Kediri – klik 2 kali ikon peninggalan Hindu Budha diwilayah Kediri – Pelajari menu materi, foto, dan video."),
+                  listStep(
+                      no: 5,
+                      step: "klik menu evaluasi –klik button”Mulai Evaluasi”- baca dan jawab soal yang "
+                          "tersedia - klik cek jawaban untuk mengetahui pembahasan soal – klik soal selanjutnya untuk melanjutkan soal."),
+                  listStep(
+                      no: 6,
+                      step: "klik menu daftar pustaka untuk mengetahui rujukan yang digunakan dalam "
+                          "pembuatan materi aplikasi PETRUK"),
+                ],
               ),
               Container(
                 margin: EdgeInsets.only(top: 15, bottom: 5),
@@ -88,5 +110,66 @@ class FaqPage extends StatelessWidget {
         ),
       ),
     ));
+  }
+
+  Widget listStep({String step, int no}) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: 40,
+            child: Text("$no."),
+          ),
+          Expanded(
+            child: Text(
+              step,
+              style: TextStyle(fontSize: 16, color: Color(0xff485696)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget listHelp({String icon, String title, String text}) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 15),
+      child: Row(
+        children: <Widget>[
+          Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              margin: EdgeInsets.only(right: 10),
+              child: SvgPicture.asset(
+                icon,
+                height: 35,
+                alignment: Alignment.center,
+              )),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    title,
+                    style: TextStyle(fontSize: 20, color: Color(0xff485696), fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    text,
+                    style: TextStyle(fontSize: 16, color: Color(0xff485696)),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

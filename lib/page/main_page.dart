@@ -6,7 +6,9 @@ import 'package:petruk/bloc/main/bloc.dart';
 import 'package:petruk/page/about_page.dart';
 import 'package:petruk/page/evaluate_start_page.dart';
 import 'package:petruk/page/faq_page.dart';
+import 'package:petruk/page/kikd_page.dart';
 import 'package:petruk/page/map_page.dart';
+import 'package:petruk/page/sitation_page.dart';
 
 class MainPage extends StatelessWidget {
   MainBloc mainBloc;
@@ -56,7 +58,12 @@ class MainPage extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      menuAction(icon: "assets/kikd.svg", name: "KI/KD", action: () {}),
+                      menuAction(
+                          icon: "assets/kikd.svg",
+                          name: "KI/KD",
+                          action: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => KikdPage()));
+                          }),
                       menuAction(
                           icon: "assets/faq.svg",
                           name: "BANTUAN",
@@ -73,13 +80,18 @@ class MainPage extends StatelessWidget {
                   ),
                   Row(
                     children: <Widget>[
+//                      menuAction(
+//                          icon: "assets/evaluation.svg",
+//                          name: "EVALUASI",
+//                          action: () {
+//                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => EvaluateStartPage()));
+//                          }),
                       menuAction(
-                          icon: "assets/evaluation.svg",
-                          name: "EVALUASI",
+                          icon: "assets/more.svg",
+                          name: "DAFTAR PUSTAKA",
                           action: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => EvaluateStartPage()));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SitationPage()));
                           }),
-                      menuAction(icon: "assets/more.svg", name: "DAFTAR PUSTAKA", action: () {}),
                       menuAction(
                           icon: "assets/about.svg",
                           name: "TENTANG",
@@ -87,7 +99,25 @@ class MainPage extends StatelessWidget {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => AboutPage()));
                           })
                     ],
-                  )
+                  ),
+                  Container(
+                      padding: EdgeInsets.only(top: 50),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            "JURUSAN SEJARAH",
+                            style: TextStyle(color: Color(0xff424874)),
+                          ),
+                          Text(
+                            "FAKULTAS ILMU SOSIAL",
+                            style: TextStyle(color: Color(0xff424874)),
+                          ),
+                          Text(
+                            "UNIVERSITAS NEGERI MALANG",
+                            style: TextStyle(color: Color(0xff424874)),
+                          ),
+                        ],
+                      ))
                 ],
               ),
             ),

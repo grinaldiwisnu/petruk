@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:petruk/model/location_model.dart';
 import 'package:petruk/model/photo_model.dart';
 import 'package:petruk/model/question_model.dart';
+import 'package:petruk/model/sitation_model.dart';
 
 class FirebaseLocationRepository {
   final todoCollection = Firestore.instance;
@@ -37,6 +38,20 @@ class FirebaseLocationRepository {
       return listQuestion;
     } else {
       return listQuestion;
+    }
+  }
+
+  Future<List<SitationModel>> sitation() async {
+    List<SitationModel> listSitation = List<SitationModel>();
+    QuerySnapshot querySnapshot = await todoCollection.collection('rujukan').getDocuments();
+
+    if (querySnapshot.documents.length > 0) {
+      querySnapshot.documents.forEach((data) {
+        listSitation.add(SitationModel.fromMap(data.data));
+      });
+      return listSitation;
+    } else {
+      return listSitation;
     }
   }
 }
